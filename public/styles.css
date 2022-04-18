@@ -1,0 +1,127 @@
+html {
+    overflow: hidden;
+    margin: 0px;
+    height: 100%;
+}
+
+body {
+    background-color: #141619;
+    color: #c8c8c8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+    height: 100%;
+}
+
+#container {
+    height: 98vh;
+    display: flex;
+    margin: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444644;
+    padding: 0px;
+}
+#users {
+    background-color: #141216;
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444644;
+}
+#chatSection {
+    background-color: #141619;
+    flex: 5;
+    margin: 5px;
+    border-radius: 10px;
+    /* display: flex;
+    flex-direction: column; */
+}
+.chat-window {
+    /* background-color: red; */
+    height: 85%;
+    overflow: auto;
+    margin-bottom: 10px;
+    /* flex: 7; */
+}
+#editorDiv {
+    /* flex: 1; */
+    position: fixed;
+    bottom: 20px;
+    width: 80.5%;
+}
+.render-message {
+    margin: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 15px;
+    /* background-color: blue; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444644;
+}
+.info-message {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444644;
+}
+.meta {
+    font-weight: bold;
+}
+#usersTitle {
+    text-align: center;
+}
+.list {
+    text-align: center;
+}
+#submit {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    max-width: 50px;
+    max-height: 25px;
+}
+
+/*
+#chatSection {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    left: 2.5%;
+    right: 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+.chat-form {
+    background-color: #343232;
+    padding: 10px;
+    border-radius: 10px;
+    float: bottom;
+}
+
+
+
+.chat-input {
+    background-color: #343232;
+    color: #c8c8c8;
+    outline-width: 0;
+    box-shadow: none;
+    border: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    position: absolute;
+    width: 90%;
+}
+.chat-submit {
+    float: right;
+}
+ */

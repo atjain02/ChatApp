@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat app</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div id="container">
+      <div id="users">
+        <div id="usersTitle">
+          Active Users
+        </div>
+        <hr>
+        <div class="list" id="usersList"></div>
+      </div>
+      <div id="chatSection">
+        <div class="chat-window"></div>
+
+        <div id="editorDiv">
+          <div id = "editor">
+          </div>
+          <input id="submit" type="image" src="button.png" width="50" height="25"></input>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/editor/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+        <!--
+            <form class="chat-form">
+              <input type="text" class="chat-input" placeholder="Chat comes here..."/>
+              <input type="submit" class="chat-submit" value="enter" />
+            </form>
+        -->
