@@ -43,6 +43,11 @@ io.on('connection', socket => {
         removeUser(user)
         io.emit('left', {user, users})
     })
+
+    socket.on("typing", () => {
+        let user = getUser(socket.id)
+        socket.broadcast.emit("typing", user)
+    })
 })
 
 server.listen(port, () => {
