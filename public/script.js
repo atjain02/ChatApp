@@ -37,7 +37,8 @@ submit.addEventListener('click', () => {
 })
 
 socket.on('chat', message => {
-    if (usersTyping.findIndex(obj => obj.username === message.sender.username) >= 0) {
+    if (usersTyping.findIndex(elem => elem === message.sender.username) >= 0) {
+      typingDebounce(message.sender.username, "remove")
       removeTyping(message.sender.username)
     }
     renderMessage(message)
@@ -62,28 +63,17 @@ socket.on('typing', message => {
 })
 
 function renderTyping(username) {
-  const inUsersTyping = usersTyping.filter(obj => {
-    return obj.username === username
-  })
-
-  if (inUsersTyping.length > 0) {
-    clearTimeout(inUsersTyping[0].timeout)
-    inUsersTyping[0].timeout = setTimeout(() => {
-      removeTyping(username)
-    }, "2000")
-  } else {
+  typingDebounce(username)
+  if (!usersTyping.includes(username)) {
     renderInfoTyping(username + " is typing...", username)
-    const timeout = setTimeout(() => {
-      removeTyping(username)
-    }, "2000")
-    usersTyping.push({username, timeout})
+    usersTyping.push(username)
   }
 }
 
 function removeTyping(username) {
   const div = document.getElementById(username)
-  const index = usersTyping.findIndex(obj => obj.username === username)
-  clearTimeout(usersTyping[index].timeout)
+  console.log(div)
+  const index = usersTyping.findIndex(elem => elem === username)
   usersTyping.splice(index, 1)
   div.remove();
 }
@@ -137,3 +127,23 @@ const renderInfoTyping = (message, username) => {
   div.appendChild(parsedMessage)
   chatWindow.appendChild(div)
 }
+
+const debounce = (func, wait) => {
+  let timeout;
+
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+
+    if (args[1] == "remove") {
+      clearTimeout(timeout);
+    } else {
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    }
+  };
+};
+
+const typingDebounce = debounce(removeTyping, 2000);
